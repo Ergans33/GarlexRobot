@@ -1,0 +1,7 @@
+from gaclex import DEV_USERS, GACLEX, DEMONS, TIGERS, WOLVES, telethn
+
+IMMUNE_USERS = GACLEX + WOLVES + DEMONS + TIGERS + DEV_USERS
+
+IMMUNE_USERS = (
+    list(GACLEX) + list(WOLVES) + list(DEMONS) + list(TIGERS) + list(DEV_USERS)
+)
