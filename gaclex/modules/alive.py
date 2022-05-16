@@ -1,0 +1,27 @@
+import os
+import re
+import random
+from platform import python_version as kontol
+from telethon import events, Button
+from telegram import __version__ as telever
+from telethon import __version__ as tlhver
+from pyrogram import __version__ as pyrover
+from gaclex.events import register
+from gaclex import telethn as tbot
+
+
+PHOTO = [
+ "https://telegra.ph/file/cfd6da4f2c4f098d69876.jpg",
+
+]
+
+@register(pattern=("/alive"))
+async def awake(event):
+  TEXT = f"**Hallo [{event.sender.first_name}](tg://user?id={event.sender.id}),\n\nsaya Gaclex Robot, saya hanyalah sebuah robot... \n Dibuat Gaclex untuk menjalankan suatu perintah.**\n━━━━━━━━━━━━━━━━━━━\n\n"
+  TEXT += f"» **ᴍʏ ᴅᴇᴠᴇʟᴏᴘᴇʀ​ : [GACLEX](https://t.me/puki)** \n"
+  TEXT += f"» **ʟɪʙʀᴀʀʏ ᴠᴇʀsɪᴏɴ :** `{telever}` \n"
+  TEXT += f"» **ᴛᴇʟᴇᴛʜᴏɴ ᴠᴇʀsɪᴏɴ :** `{tlhver}` \n"
+  TEXT += f"» **ᴘʏʀᴏɢʀᴀᴍ ᴠᴇʀsɪᴏɴ :** `{pyrover}` \n━━━━━━━━━━━━━━━━━\n\n"
+  BUTTON = [[Button.url("GACLEX", "https://t.me/gaclexx?start=help"), Button.url("GACLEX", "https://t.me/gaclexxa")]]
+  ran = random.choice(PHOTO)
+  await tbot.send_file(event.chat_id, ran, caption=TEXT,  buttons=BUTTON)
